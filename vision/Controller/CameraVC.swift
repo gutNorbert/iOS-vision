@@ -110,7 +110,7 @@ extension CameraVC: AVCapturePhotoCaptureDelegate{
             photoData = photo.fileDataRepresentation()
             
             do{
-                let model = try VNCoreMLModel(for: SqueezeNet().model)
+                let model = try VNCoreMLModel(for: MobileNet().model)
                 let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod) // we dont need param for fun resultsMethod
                 let handler = VNImageRequestHandler(data: photoData!)
                 try handler.perform([request])
